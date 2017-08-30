@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>NavVis Indoor Viewer - Embedding Example</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!-- hard-coded the default IV style -->
+  <style>
+    .left-panel-element, .modal-dialog { margin-top: 80px !important }
+  </style>
+
+  <script src="http://nv-panda:8080/iv.yuan/IndoorViewerAPI.js"></script>
+  <script type="text/javascript">
+    IV.loaded(function() {
+      var indoorViewer = new IndoorViewer({
+        'base_url': 'http://nv-panda:8080/iv.yuan',
+        'menu.datasets.visible': false,
+        'menu.poi.visible': false,
+        'menu.pointcloud.visible': false,
+        'menu.mode.visible': false,
+        'menu.view.visible': false,
+        'menu.share.visible': false,
+        'menu.about.visible': false,
+        'menu.login.visible': false,
+        'menu.newwindow.visible': false,
+        'ui.search.visible': false,
+        'onLoadComplete': loadFinished
+      });
+    });
+
+    function loadFinished() {
+      //var view = indoorViewer.getMainView();
+      console.log(IV.getMainView().scene);
+    }
+  </script>
+</head>
+
+<body>
+  <div style="width: 100%; margin: 0;">
+    <div ng-include src="'iv.html'" style="height:100vh;"></div>
+  </div>
+</body>
+
+</html>
